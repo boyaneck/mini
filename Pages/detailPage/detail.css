@@ -2,6 +2,15 @@
 
 
 /* Global */
+section::-webkit-scrollbar {
+  width: 8px;
+}
+
+section::-webkit-scrollbar-thumb {
+  height: 30%;
+  background: #d3d3d3;
+  border-radius: 10px;
+}
 
 * {
   padding: 0;
@@ -25,10 +34,11 @@ a {
   width: 100%;
   height: fit-content;
   padding: 3rem 15%;
-  /* background-color: var(--background-color);
-  background-image: radial-gradient(#F8CD07 9%, transparent 0), radial-gradient(#F8CD07 5%, transparent 0); */
-  /* background-position: 0 0, 10px 10px;
-  background-size: 20px 20px; */
+  background-color: var(--background-color);
+  background-image: radial-gradient(#F8CD07 9%, transparent 0),
+    radial-gradient(#F8CD07 5%, transparent 0);
+  background-position: 0 0, 10px 10px;
+  background-size: 20px 20px;
 }
 
 /* COMP */
@@ -117,15 +127,24 @@ a {
 
 
 /* Description */
+.profile_description_title {
+  color: #8250DF;
+  font-weight: 600;
+}
+
 .profile_description {
-  width: 550px;
-  min-width: 50%;
+  width: 450px;
+  height: 100px;
+  padding-right: 0.5rem;
+  min-width: 39%;
   line-height: 1.5rem;
   letter-spacing: 0.065rem;
   word-break: keep-all;
   font-weight: 700;
-  margin-block: 2rem;
+  margin-block: 0.5rem;
+  overflow-y: scroll;
 }
+
 
 .profile_description>h1 {
   font-size: 2rem;
