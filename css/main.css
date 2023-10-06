@@ -1,0 +1,140 @@
+body {
+  background-color: #fff;
+  color: #333333;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.4;
+}
+
+.inner {
+  width: 1500px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* HEADER */
+header {
+  z-index: 1;
+}
+
+header > .inner {
+}
+
+header .item {
+}
+
+header .item .team_title {
+  width: 300px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  color: #333333;
+  padding: 30px;
+  font-size: 60px;
+  font-weight: 900;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header .item:hover .team_title {
+  color: #8250df;
+  background-color: #fff;
+  border-style: solid;
+  border-width: 8px 8px 0 8px;
+  border-color: #8250df;
+  border-radius: 10px 10px 0 0;
+  cursor: pointer;
+}
+
+header .item .team_contents {
+  width: 100%;
+  display: none;
+}
+
+header .item:hover .team_contents {
+  display: block;
+}
+
+header .item .team_contents .team_info {
+  padding-left: 200px;
+  font-weight: 700;
+  background-color: #8250df;
+  border-radius: 17px;
+}
+
+header .item .team_contents .team_info > ul {
+  display: flex;
+  padding: 50px 0;
+}
+
+header .item .team_contents .team_info > ul > li {
+  width: 300px;
+}
+
+header .item .team_contents .team_info > ul > li h3 {
+  padding: 3px 0 12px 0;
+  font-size: 28px;
+  color: #fff;
+}
+
+header .item .team_contents .team_info > ul > li ul {
+}
+
+header .item .team_contents .team_info > ul > li ul li {
+  padding: 5px 0;
+  font-size: 21px;
+  color: #f8cd07;
+}
+
+/* PROFILE */
+.profile {
+  height: 500px;
+  background-color: bisque;
+}
+
+.message {
+  height: 500px;
+  background-color: #888888;
+}
+
+.message > .inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+}
+
+.message .message_button {
+  background-color: #f8cd07;
+  color: #555;
+  font-size: 50px;
+  padding: 9px 21px;
+  border: 7px solid #555;
+  border-radius: 10px;
+}
+
+.message .message_button:hover {
+  cursor: pointer;
+  color: #fff;
+  border-color: #fff;
+}
+
+#to-top {
+  width: 42px;
+  height: 42px;
+  background-color: #333;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  z-index: 9;
+}
