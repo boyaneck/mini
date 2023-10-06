@@ -1,0 +1,155 @@
+body {
+  background-color: #fff;
+  color: #333333;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.4;
+}
+
+.inner {
+  width: 1000px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* HEADER */
+header {
+  z-index: 1;
+  padding-bottom: 30px;
+}
+
+header .item .team_title {
+  color: #222;
+  width: 300px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  color: #333333;
+  padding: 40px 30px 0 30px;
+  font-size: 45px;
+  font-weight: 900;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header .item:hover .team_title {
+  color: #888;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+header .item .team_contents {
+  width: 100%;
+  display: none;
+}
+
+header .item:hover .team_contents {
+  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 17px;
+  transition-duration: 2s;
+}
+
+header .item .team_contents .team_info {
+  display: flex;
+  width: 1300px;
+  margin-top: 20px;
+}
+
+header .item .team_contents .team_info > ul {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header .item .team_contents .team_info > ul h3 {
+  background-color: #f8cd07;
+  color: #fff;
+  padding: 10px 20px;
+  width: 130px;
+  font-size: 21px;
+  font-weight: 600;
+  border-radius: 10px;
+  text-align: center;
+}
+
+header .item .team_contents .team_info > ul:hover h3 {
+  background-color: #ad6cf7;
+}
+
+header .item .team_contents .team_info > ul > ul {
+  display: none;
+}
+
+header .item .team_contents .team_info > ul:hover > ul {
+  display: block;
+  width: 300px;
+  margin-top: 25px;
+
+  padding: 30px;
+  background-color: #e2dcdc;
+  border-radius: 10px;
+  border: 1px solid #999;
+}
+
+header .item .team_contents .team_info > ul > ul > li {
+  padding-bottom: 10px;
+  font-size: 18px;
+}
+
+/* PROFILE */
+.profile {
+  background-color: bisque;
+  padding: 30px 0;
+}
+
+.message {
+  height: 500px;
+  background-color: #888888;
+}
+
+.message > .inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+}
+
+.message .message_button {
+  background-color: #f8cd07;
+  color: #555;
+  font-size: 23px;
+  padding: 9px 21px;
+  border: 3px solid #555;
+  border-radius: 10px;
+}
+
+.message .message_button:hover {
+  cursor: pointer;
+  color: #fff;
+  border-color: #fff;
+}
+
+#to-top {
+  width: 42px;
+  height: 42px;
+  background-color: #333;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  z-index: 9;
+}
