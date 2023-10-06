@@ -6,7 +6,7 @@ img {
 }
 
 .profile_cards {
-  width: 50%;
+  width: 100%;
   margin: auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);

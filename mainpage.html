@@ -14,9 +14,13 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/main.css" />
+
+
     <!-- 민용-->
     <link rel="stylesheet" type="text/css" href="css/button.css">
     <link rel="stylesheet" type="text/css" href="css/profile.css">
+
+
 
     <!-- GSAP & ScrollToPlugin -->
     <script
@@ -38,90 +42,97 @@
   <body>
     <!-- HEADER -->
     <header>
-        <div class="inner">
-            <div class="item">
-                <!-- TITLE -->
-                <div class="team_title">Team T2F1</div>
+      <div class="inner">
+        <div class="item">
+          <!-- TITLE -->
+          <div class="team_title">Team T2F1</div>
+            <!-- TEAM INFO -->
+          <div class="team_contents">
+            <div class="team_info">
+              <ul>
+                <h3>TEAM</h3>
+                <ul>
+                    <li>팀명 : T2F1</li>
+                    <li>팀 소개 : 사용자들의 니즈를 파악하여 사용자가 요구한 문제를 해결하자!</li>
+                </ul>
+                </ul>
+                <ul>
+                    <h3>MERBER</h3>
+                    <ul>
+                        <li>진민용 - 다같이 LEVEL UP!</li>
+                        <li>이락균 - 가보자고오~.~</li>
+                        <li>김은비 - 항상 즐겁게 킵고잉!</li>
 
-                <!-- TEAM INFO -->
-                <div class="team_contents">
+                    </ul>
+                </ul>
+                <ul>
+                    <h3>PROJECT</h3>
+                    <ul>
+                        <li>Cheer Up!</li>
+                        <li>약 5개월 간의 개발자 과정을 잘 마무리 하여 “어엿한 주니어 개발자”로 성장하기 위해 서로를 응원하는 마음을 담은 프로젝트 입니다! </li>
+                    </ul>
+                </ul>
+                <ul>
+                    <h3>TEAM GOAL</h3>
+                    <ul>
+                        <li>사용자들의 니즈를 파악하여 사용자가 요구한 문제를 해결하자!</li>
 
-                    <div class="team_info">
-                        <ul>
-                            <h3>TEAM</h3>
-                            <ul>
-                                <li>팀명 : T2F1</li>
-                                <li>팀 소개 : 사용자들의 니즈를 파악하여 사용자가 요구한 문제를 해결하자!</li>
-                            </ul>
-                        </ul>
-                        <ul>
-                            <h3>MERBER</h3>
-                            <ul>
-                                <li>진민용 - 다같이 LEVEL UP!</li>
-                                <li>이락균 - 가보자고오~.~</li>
-                                <li>김은비 - 항상 즐겁게 킵고잉!</li>
-
-                            </ul>
-                        </ul>
-                        <ul>
-                            <h3>PROJECT</h3>
-                            <ul>
-                                <li>Cheer Up!</li>
-                                <li>약 5개월 간의 개발자 과정을 잘 마무리 하여 “어엿한 주니어 개발자”로 성장하기 위해 서로를 응원하는 마음을 담은 프로젝트 입니다! </li>
-
-
-                            </ul>
-                        </ul>
-                        <ul>
-                            <h3>TEAM GOAL</h3>
-                            <ul>
-                                <li>사용자들의 니즈를 파악하여 사용자가 요구한 문제를 해결하자!</li>
-
-                            </ul>
-                        </ul>
-
-
-
-                    </div>
-                </div>
+                    </ul>
+                </ul>
             </div>
-          </div>
         </div>
-      </div>
     </header>
 
     <!-- PROFILE -->
     <div class="profile">
-        <div class="inner">
-            <!-- 민용-->
-            <div>
-                <div class="image" style="text-align: center; height:200px;">
 
-                    <img src="image/city-3764330_1280.jpg" alt="" class="p1">
-                    <img src="image/pop-art-2706464_1280.jpg" alt="" class="p2">
+      <div class="inner">
+        <!-- 민용-->
+    <div class="team_profiles">
+      <div class="profile_cards">
+        <a href="./Pages/detailPage/detail.html?id=0">
+          <div class="image" style="text-align: center; height: 200px">
+            <img src="image/city-3764330_1280.jpg" alt="" class="p1" />
+            <img src="image/pop-art-2706464_1280.jpg" alt="" class="p2" />
+          </div>
+        </a>
+        <a href="./Pages/detailPage/detail.html?id=1">
+          <div class="image" style="text-align: center; height: 200px">
+            <img src="image/city-3764330_1280.jpg" alt="" class="p1" />
+            <img src="image/pop-art-2706464_1280.jpg" alt="" class="p2" />
+          </div>
+        </a>
+        <a href="./Pages/detailPage/detail.html?id=2">
+          <div class="image" style="text-align: center; height: 200px">
+            <img src="image/city-3764330_1280.jpg" alt="" class="p1" />
+            <img src="image/pop-art-2706464_1280.jpg" alt="" class="p2" />
+          </div>
+        </a>
+      </div>
 
-                </div>
-                <div class="image" style="text-align: center; height:200px;">
+      <div class="profile_buttons">
+        <div class="btn" onclick="register()">프로필 수정</div>
+        <div class="btn" onclick="cancle()">취소하기</div>
 
-                    <img src="image/city-3764330_1280.jpg" alt="" class="p1">
-                    <img src="image/pop-art-2706464_1280.jpg" alt="" class="p2">
-
-                </div>
-            </div>
-            <div class="btn" onclick="register()">프로필 수정</div>
-            <div class="btn" onclick="cancle()">취소하기</div>
-            <!-- <div class="btn" onclick="location.href='register.html'"> 같이 응원하기!</div> -->
+        <div class="btn" onclick="location.href='register.html'">
+          같이 응원하기!
         </div>
+      </div>
     </div>
+
+      </div>
+
     </div>
 
     <!-- CHEERING MESSAGE -->
     <div class="message">
         <div class="inner">
             <div class="item">
-
                 <button class="message_button" onclick="location.href='register.html'">Cheer Up!</button>
             </div>
+
+
+
         </div>
       </div>
     </div>
@@ -135,7 +146,13 @@
     <div id="to-top">
       <div class="material-icons">arrow_upward</div>
     </div>
+
+
+
+
+
+
 </body>
 
 </html>
-
+>>>>>>> 912413f5cba2d8572a4f1b29cd986ede459eeb1b
