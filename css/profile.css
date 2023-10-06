@@ -1,0 +1,39 @@
+
+
+ 
+img {
+    box-sizing: border-box;
+    max-width: 100%;
+    border-radius: 10px;
+    
+}
+
+  .image {
+    box-shadow: 10px 10px 10px gray;
+    width: 200px;
+    margin: 0px auto;
+    position: relative;
+    border-radius: 10px;
+  }
+  .p2 {
+    width:200px;
+    height:200px;
+    border-radius: 10px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+  transition: opacity 0.4s linear;
+  }
+  .p1{
+    border-radius: 10px;
+    width:200px;
+    height:200px;
+  }
+  .image:hover .p2 {
+   
+    
+    cursor: pointer;
+    display: block;
+    opacity: 1;
+  }
