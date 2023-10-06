@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./css/main.css" />
-   
+
 
     <!-- 민용-->
     <link rel="stylesheet" type="text/css" href="css/button.css">
     <link rel="stylesheet" type="text/css" href="css/profile.css">
-   
-    
+
+
     <!-- GSAP & ScrollToPlugin -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
         integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug=="
@@ -79,9 +79,32 @@
     <!-- PROFILE -->
     <div class="profile">
         <div class="inner">
+            <!-- 민용-->
 
+            <div>
+                <div class="image" style="text-align: center; height:200px;">
+
+                    <img src="image/city-3764330_1280.jpg" alt="" class="p1">
+                    <img src="image/pop-art-2706464_1280.jpg" alt="" class="p2">
+
+                </div>
+                <div class="image" style="text-align: center; height:200px;">
+
+                    <img src="image/city-3764330_1280.jpg" alt="" class="p1">
+                    <img src="image/pop-art-2706464_1280.jpg" alt="" class="p2">
+
+                </div>
+            </div>
+
+            <div class="btn" onclick="register()">프로필 수정</div>
+            <div class="btn" onclick="cancle()">취소하기</div>
+
+            <!-- <div class="btn" onclick="location.href='register.html'"> 같이 응원하기!</div> -->
 
         </div>
+
+
+    </div>
     </div>
 
     <!-- CHEERING MESSAGE -->
@@ -89,7 +112,7 @@
         <div class="inner">
             <div class="item">
 
-                <button class="message_button">Cheer Up!</button>
+                <button class="message_button" onclick="location.href='register.html'">Cheer Up!</button>
             </div>
 
 
@@ -108,31 +131,8 @@
         <div class="material-icons">arrow_upward</div>
     </div>
 
-   
- <!-- 민용-->
 
-   <div>
-    <div class="image" style="text-align: center; height:200px;">
-        
-        <img src="image/city-3764330_1280.jpg" alt="" class="p1">
-      <img src="image/pop-art-2706464_1280.jpg" alt="" class="p2">
-        
-    </div>
-    <div class="image" style="text-align: center; height:200px;">
-        
-        <img src="image/city-3764330_1280.jpg" alt="" class="p1">
-      <img src="image/pop-art-2706464_1280.jpg" alt="" class="p2">
-        
-    </div>
-  </div>
 
-    <div class="btn" onclick="register()">프로필 수정</div>
-    <div class="btn" onclick="cancle()">취소하기</div>
-
-    <div class="btn" onclick="location.href='register.html'"> 같이 응원하기!</div>
-   
-       </div>
-   
 
 
 </body>
