@@ -2,11 +2,15 @@ const nextBtn = document.querySelector('.button_next');
 const prevBtn = document.querySelector('.button_prev');
 const wrapper = document.querySelector('.wrapper');
 const hobbySection = document.querySelector('.hobby_list');
+// queryString으로 받아온 url Parameter
+const urlParams = new URLSearchParams(window.location.search);
+const initValue = urlParams.get('id');
 
 let position = 0;
 
 const profile = [
   {
+    id: 0,
     name: '진민용',
     github: 'https://github.com/boyaneck',
     blog: 'https://velog.io/@boyaneck',
@@ -26,21 +30,35 @@ const profile = [
     }],
   },
   {
+    id: 1,
     name: '김은비',
-    github: '',
-    blog: 'https://squall-8.tistory.com/',
+    github: 'https://github.com/paaaran',
+    blog: 'https://velog.io/@eunbi',
     MBTI: 'ISTP',
     img: '',
-    goal: '',
-    hobby: '',
+    goal: `진로를 고민했을 때 어렸을 때부터 흥미를 느꼈던 개발자가 되는 것에 대해 생각해보게 되었고 하나씩 알아가면서 저의 적성에 맞는 것 같아 개발자가 되어야겠다고 다짐했습니다.
+현재의 목표는 부트캠프 커리큘럼을 열심히 따라가며 개발 능력을 향상시켜서 팀 또는 개인으로 멋진 프로젝트를 완성시키는 것이고, 후에 부트캠프를 마치고 신입 프론트엔드 개발자로 취업하는 것입니다.`,
+    hobby: [{
+      icon: '&#127911;',
+      text: '음악감상',
+    }, {
+      icon: '&#127968;',
+      text: '인테리어',
+    },
+    {
+      icon: '&#127807;',
+      text: '명상',
+    }],
   },
   {
+    id: 2,
     name: '이락균',
     github: 'https://github.com/Newbie-Alert',
     blog: 'https://velog.io/@waffle_bear',
     MBTI: 'INTP',
     img: '',
-    goal: "8년동안 해왔던 영상 제작을 내려놓고 코드 하나로 모든 것을 만들어내는 것에 매력을 느껴 개발자로 전직을 하게 됐습니다.많은 문제를 직면하고 해결하며 능동적으로 성장하는 개발자가 되고 싶습니다.",
+    goal: `8년동안 해왔던 영상 제작을 내려놓고,
+    코드로 모든 것을 만들어내는 개발에 매력을 느껴 개발자로 전직을 하게 됐습니다.많은 문제를 직면하고 해결하며 능동적으로 성장하는 개발자가 되고 싶습니다.`,
     // hobbyIcon: ['&#128170;', '&#128021;', '&#128218;'],
     hobby: [{
       icon: '&#128170;',
@@ -57,10 +75,22 @@ const profile = [
 ]
 
 
-
 function drawPage() {
-  profile.forEach(data => {
-    const { name, github, blog, MBTI, goal, hobby } = data
+  // const selected = profile.filter(el => el.id === parseInt(initValue))
+  // const other = profile.filter(el => el.id !== parseInt(initValue))
+  // const sorted = selected.concat(other);
+  const sorted = profile.slice().sort((a, b) => {
+    const aId = a.id;
+    const bId = b.id;
+    if (aId === parseInt(initValue)) return -1;
+    if (bId === parseInt(initValue)) return 1;
+
+    return 0;
+  });
+
+  sorted.forEach(data => {
+    const { name, github, blog, MBTI, goal, hobby } = data;
+
     let textHTML = `<div class="profile_comp">
             <div class="profile_container">
               <div class="profile_image">
@@ -92,8 +122,8 @@ function drawPage() {
                 </div>
               </div>
             </div>
+            <h1 class="profile_description_title">계기와 목표</h1>
             <section class="profile_description">
-              <h1>계기와 목표</h1>
               ${goal !== '' ? goal : '<h3>아직 없어요🥹</h3>'}
             </section>
             <section class= "profile_hobby" >
@@ -105,6 +135,7 @@ function drawPage() {
               </div>
             </section >
           </div>`
+
     wrapper.insertAdjacentHTML("beforeend", textHTML)
   })
 }
@@ -118,7 +149,7 @@ function drawList(data) {
       </li>`
     )
   })
-  console.log(list);
+
   return list.join(' ')
 }
 

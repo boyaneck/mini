@@ -1,39 +1,67 @@
-
-
- 
 img {
-    box-sizing: border-box;
-    max-width: 100%;
-    border-radius: 10px;
-    
+  box-sizing: border-box;
+  max-width: 100%;
+  border-radius: 10px;
+
 }
 
-  .image {
-    box-shadow: 10px 10px 10px gray;
-    width: 200px;
-    margin: 0px auto;
-    position: relative;
-    border-radius: 10px;
-  }
-  .p2 {
-    width:200px;
-    height:200px;
-    border-radius: 10px;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    opacity: 0;
+.profile_cards {
+  width: 100%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.team_profiles {
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.3rem;
+}
+
+
+.image {
+  box-shadow: 10px 10px 10px gray;
+  width: 200px;
+  margin: 0px auto;
+  position: relative;
+  border-radius: 10px;
+}
+
+.p2 {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  opacity: 0;
   transition: opacity 0.4s linear;
-  }
-  .p1{
-    border-radius: 10px;
-    width:200px;
-    height:200px;
-  }
-  .image:hover .p2 {
-   
-    
-    cursor: pointer;
-    display: block;
-    opacity: 1;
-  }
+}
+
+.p1 {
+  border-radius: 10px;
+  width: 200px;
+  height: 200px;
+}
+
+.image:hover .p2 {
+
+
+  cursor: pointer;
+  display: block;
+  opacity: 1;
+}
+
+.profile_buttons {
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+  margin: auto;
+  gap: 1rem;
+  font-weight: 700;
+}
+
+.profile_buttons .btn {
+  padding: 0.5rem 1.5rem;
+}
