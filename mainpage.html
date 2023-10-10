@@ -13,6 +13,7 @@
 
 
   <!-- GSAP & ScrollToPlugin -->
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
     integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -26,9 +27,6 @@
   <link rel="stylesheet" href="./css/main.css" />
   <link rel="stylesheet" type="text/css" href="css/button.css">
   <link rel="stylesheet" type="text/css" href="css/profile.css">
-
-
-  <script defer src="./js/main.js"></script>
 
 
   <script type="module">
@@ -45,7 +43,7 @@
       storageBucket: "mini-intro.appspot.com",
       messagingSenderId: "634745339046",
       appId: "1:634745339046:web:a3c1932b0c8940e0290867",
-      measurementId: "G-L43KNKS7DB"
+      measurementId: "G-L43KNKS7DB",
     };
   
 
@@ -53,53 +51,30 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
-  
-
-    
-
-
     let docs = await getDocs(collection(db, "messages"));
-
-
-
-    $('.deletebtn').click(async function() {
-      let id = $('#id')
-
-      await deleteDoc(doc(db, "messages", "id"));
-
-    })
 
 
     docs.forEach((doc) => {
       let row = doc.data();
-      console.log(row);
-
       let name = row['name'];
       let command = row['command'];
       let id = row['id'];
 
       let temp_html = 
         `
-        <p class="command"><span id="name">${name}</span>: <span>${command}</span>
-          <button class="deletebtn">삭제</button>
+        <p  class="command"><span id="name">${name}</span id="text">: <span>${command}</span>
+          <button data-id=${id} id="del_button" class="delete_button">삭제</button>
+          <button data-id=${id} id="del_button" class="edit_button">수정</button>
         </p>
         `;
 
       $('#commands').append(temp_html);
-
-      
-      
     })
-
-
 
     $('.mini_profile').click(async function() {
       location.href="./Pages/detailPage/detail.html?id="
     })
 
-
-
-    
 
 
   </script>
@@ -210,14 +185,16 @@
   <!-- CHEERING MESSAGE -->
   <div class="message">
     <div class="inner">
-      <button class="message_button" onclick="location.href='reply2.html'">응원메시지 남기기</button>
+      
+      <button class="message_button" onclick="location.href='./reply.html'">응원메시지 남기기</button>
       <div id="commands" class="commands">
         <p class="command"><span id="name">이름</span>: <span>응원메시지</span>
-          <button class="deletebtn">삭제</button>
+          <button 
+          >삭제</button>
         </p>
       </div>
 
-
+      
 
     </div>
   </div>
@@ -232,11 +209,6 @@
   <div id="to-top">
     <div class="material-icons">arrow_upward</div>
   </div>
-
-
-
-
-
 
 </body>
 

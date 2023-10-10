@@ -1,14 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-import {
-  collection,
-  addDoc,
-} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-import {
-  query,
-  where,
-} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+import { getFirestore, collection, getDocs, query, where } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDCMmkPhiF-vFVmadyBDgVoMHGL8tn-G9M",
@@ -24,9 +15,11 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// DB Var
-const CrewRef = collection(db, "crew");
+// DB
+// 콜렉션 변수에 저장
+const CrewCollection = collection(db, "crew");
 
+// no_use
 async function getByUsername(username) {
   const q = query(CrewRef, where("name", "==", username));
   const docs = await getDocs(q);
@@ -34,15 +27,15 @@ async function getByUsername(username) {
     console.log(item.data());
   });
 }
-getByUsername("이락균");
 
 // Profile data init
 let profile = [];
 
 // Profile data Fetch
-const data = await getDocs(CrewRef);
-// map으로 순회하며 데이터를 다듬어 배열로 반환
-const newData = data.docs.map((data) => ({ ...data.data() }));
+const data = await getDocs(CrewCollection)
+// map으로 순회하며 데이터를 다듬어 '배열'로 반환
+const newData = data.docs.map((data) => (data.data()));
+// 반환 된 배열을 풀어서 profile에 저장
 profile = [...newData];
 
 const nextBtn = document.querySelector(".button_next");
@@ -59,6 +52,8 @@ function drawPage() {
   // const selected = profile.filter(el => el.id === parseInt(initValue))
   // const other = profile.filter(el => el.id !== parseInt(initValue))
   // const sorted = selected.concat(other);
+
+  // URL parameter에 따라 처음으로 보여질 데이터를 앞으로 정렬
   const sorted = profile.slice().sort((a, b) => {
     const aId = a.id;
     const bId = b.id;
@@ -124,6 +119,7 @@ function drawPage() {
 }
 
 function drawList(data) {
+  // 데이터를 받아 map으로 순회하며 text 형태의 HTML 반환 - [`<li>...`, `<li>...`, `<li>...`]
   let list = data?.map((item) => {
     return `<li>
         <p>${item.icon}</p>
@@ -131,6 +127,7 @@ function drawList(data) {
       </li>`;
   });
 
+  // 각각의 데이터를 바인딩 해놓은 HTML 배열을 ',' 제거하여 반환
   return list.join(" ");
 }
 
@@ -151,3 +148,25 @@ function movePrev() {
 drawPage();
 nextBtn.addEventListener("click", moveNext);
 prevBtn.addEventListener("click", movePrev);
+
+
+
+
+
+
+
+// main tokenHandler
+
+// // TOKEN
+// function getToken() {
+//   const token = localStorage.getItem('token');
+//   return token
+// }
+// getToken();
+// function isAdmin() {
+//   if (getToken() !== null) {
+//     $('.delete_button').addClass('hide')
+//   }
+// }
+
+// isAdmin();
