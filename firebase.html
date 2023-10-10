@@ -20,6 +20,33 @@
         }
     </style>
     <script>
+
+        // // Firebase SDK 라이브러리 가져오기
+        // import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+        // import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        // import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        // import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+
+        // // Firebase 구성 정보 설정
+        // const firebaseConfig = {
+        //     apiKey: "AIzaSyDCMmkPhiF-vFVmadyBDgVoMHGL8tn-G9M",
+        //     authDomain: "mini-intro.firebaseapp.com",
+        //     projectId: "mini-intro",
+        //     storageBucket: "mini-intro.appspot.com",
+        //     messagingSenderId: "634745339046",
+        //     appId: "1:634745339046:web:a3c1932b0c8940e0290867",
+        //     measurementId: "G-L43KNKS7DB"
+        // };
+        // // Firebase 인스턴스 초기화
+        // const app = initializeApp(firebaseConfig);
+        // const db = getFirestore(app);
+
+        // $("#id").click(async function () {
+        //     let doc = {};
+        //     await addDoc(collection(db, "콜렉션이름"), doc);
+        // })
+
         function hey() {
             let url = 'http://spartacodingclub.shop/sparta_api/seoulair';
             fetch(url).then(res => res.json()).then(data => {
@@ -29,9 +56,9 @@
                     let gu_mise = e['IDEX_NM'];
                     console.log(gu_name, gu_mise)
                     let abc = ``;
-                    let number = Math.floor(Math.random() * (6 - 1 + 1) + 1);
+                    let number = Math.floor(Math.random() * (5 - 1 + 1) + 1);
                     // random * (max-min+1)+min)
-                    let color = ['red', 'orange', 'yellow', 'green', 'skyblue', 'purple', 'gray'];
+                    let color = ['#48767B', '#E26559', '#84B9C0', '#FFE697', '#C5D7F2', '#2B7799'];
                     let color1 = color[number];
 
 
