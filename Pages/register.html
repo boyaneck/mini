@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="../css//register.css" />
+    <link rel="stylesheet" type="text/css" href="../css/button.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="submit_form">
+      <h2>응원메시지 남기기!</h2>
+      <div class="inputbox">
+        <input type="text" required placeholder="닉네임" name="username" />
+      </div>
+      <div class="inputbox">
+        <input type="text" required placeholder="응원메시지" name="text" />
+      </div>
+      <div class="inputbox">
+        <input type="submit" value="응원등록" />
+      </div>
+    </form>
+    <div class="modal_bg hide">
+      <div class="modal_submitResult">
+        <h2>코호마워요!😉</h2>
+        <p>잠시 후 메인페이지로 이동합니다</p>
+      </div>
+    </div>
+    <button class="getData">데이터 가져오기</button>
+    <script type="module" src="../DB//firebase.js"></script>
+  </body>
+</html>
