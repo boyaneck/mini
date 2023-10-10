@@ -155,9 +155,9 @@ header .item .team_contents .team_info > ul > ul > li .mini_profile {
 .message > .inner {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  text-align: left;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   padding: 50px;
 }
 
@@ -187,8 +187,8 @@ header .item .team_contents .team_info > ul > ul > li .mini_profile {
 .message .commands {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   font-size: 18px;
   font-weight: 500;
 }

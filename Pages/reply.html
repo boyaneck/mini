@@ -39,7 +39,8 @@
 
         
         
-        $("#postingbtn").click(async function () {
+        $("#postingbtn").click(async function (e) {
+            e.preventDefault();
             let name = $('#name').val();
             let command = $('#command').val();
             let id = Math.random()
