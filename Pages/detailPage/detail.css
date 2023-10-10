@@ -133,15 +133,15 @@ a {
 }
 
 .profile_description {
-  width: 450px;
+  width: 650px;
   height: 100px;
-  padding-right: 0.5rem;
+  padding: 0.5rem 0.5rem 0.5rem 0;
   min-width: 39%;
   line-height: 1.5rem;
   letter-spacing: 0.065rem;
   word-break: keep-all;
   font-weight: 700;
-  margin-block: 0.5rem;
+  margin-block: 0.3rem;
   overflow-y: scroll;
 }
 
