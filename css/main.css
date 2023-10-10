@@ -193,19 +193,26 @@ header .item .team_contents .team_info>ul>ul>li .mini_profile {
   font-weight: 500;
 }
 
-.message .commands>p {
+.message .commands .command {
   background-color: #fbd14b;
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
 }
 
-.message .commands .command .deletebtn {
+.message .commands .command .cmdbtn {
   display: none;
 }
 
-.message .commands .command:hover .deletebtn {
+.message .commands .command:hover .cmdbtn {
   display: block;
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.message .commands .command .cmdbtn .editbtn {
+  margin-right: 10px;
 }
 
 #to-top {

@@ -148,25 +148,3 @@ function movePrev() {
 drawPage();
 nextBtn.addEventListener("click", moveNext);
 prevBtn.addEventListener("click", movePrev);
-
-
-
-
-
-
-
-// main tokenHandler
-
-// // TOKEN
-// function getToken() {
-//   const token = localStorage.getItem('token');
-//   return token
-// }
-// getToken();
-// function isAdmin() {
-//   if (getToken() !== null) {
-//     $('.delete_button').addClass('hide')
-//   }
-// }
-
-// isAdmin();
