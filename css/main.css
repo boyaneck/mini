@@ -61,14 +61,14 @@ header .item .team_contents .team_info {
   margin-top: 20px;
 }
 
-header .item .team_contents .team_info>ul {
+header .item .team_contents .team_info > ul {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-header .item .team_contents .team_info>ul h3 {
+header .item .team_contents .team_info > ul h3 {
   background-color: #fbd14b;
   color: #fff;
   padding: 10px 20px;
@@ -80,17 +80,17 @@ header .item .team_contents .team_info>ul h3 {
   font-family: "Open Sans", sans-serif;
 }
 
-header .item .team_contents .team_info>ul:hover h3 {
+header .item .team_contents .team_info > ul:hover h3 {
   background-color: #6a60a9;
   box-shadow: 0 0 7px #555;
   transition: all 0.3s ease-in-out;
 }
 
-header .item .team_contents .team_info>ul>ul {
+header .item .team_contents .team_info > ul > ul {
   display: none;
 }
 
-header .item .team_contents .team_info>ul:hover>ul {
+header .item .team_contents .team_info > ul:hover > ul {
   display: block;
   width: 300px;
   margin-top: 25px;
@@ -101,32 +101,32 @@ header .item .team_contents .team_info>ul:hover>ul {
   transition: all 0.3s ease-in-out;
 }
 
-header .item .team_contents .team_info>ul>ul img {
+header .item .team_contents .team_info > ul > ul img {
   width: 300px;
   height: 300px;
   background-color: #555;
 }
 
-header .item .team_contents .team_info>ul>ul h4 {
+header .item .team_contents .team_info > ul > ul h4 {
   font-weight: 600;
   font-family: "Open Sans", sans-serif;
   font-size: 20px;
 }
 
-header .item .team_contents .team_info>ul>ul p {
+header .item .team_contents .team_info > ul > ul p {
   font-weight: 500;
   font-size: 15px;
   margin-top: 10px;
 }
 
-header .item .team_contents .team_info>ul>ul>li {
+header .item .team_contents .team_info > ul > ul > li {
   display: flex;
   flex-direction: row;
   margin-bottom: 20px;
   align-items: center;
 }
 
-header .item .team_contents .team_info>ul>ul>li .mini_profile {
+header .item .team_contents .team_info > ul > ul > li .mini_profile {
   width: 50px;
   height: 50px;
   border-radius: 100px;
@@ -152,7 +152,7 @@ header .item .team_contents .team_info>ul>ul>li .mini_profile {
   height: 500px;
 }
 
-.message>.inner {
+.message > .inner {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
