@@ -200,6 +200,14 @@ header .item .team_contents .team_info > ul > ul > li .mini_profile {
   border-radius: 5px;
 }
 
+.message .commands .command .editform {
+  display: flex;
+  flex-direction: column;
+}
+
+.message .commands .command .editform {
+}
+
 .message .commands .command .cmdbtn {
   display: none;
 }
