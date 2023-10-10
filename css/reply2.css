@@ -9,11 +9,12 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-image: url("http://design.gabia.com/wordpress/wp-content/uploads/2017/07/minions_04.jpg");
-
-  background-size: cover !important;
+  background: url("https://images.unsplash.com/photo-1623346016470-53d81533a76d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80");
+  background-size: cover;
   background-position: center;
+  background-color: #555;
 }
+
 .wrapper {
   width: 420px;
   background: transparent;
@@ -54,6 +55,7 @@ body {
   color: #fff;
   font-weight: 600;
 }
+
 .input-box i {
   position: absolute;
   right: 20px;
@@ -61,6 +63,11 @@ body {
   transform: translateY(-50%);
   font-size: 20px;
 }
+
+#postingbtn {
+  padding-bottom: 2rem;
+}
+
 .wrapper .btn {
   font-family: arial;
   text-transform: uppercase;
@@ -81,6 +88,7 @@ body {
   font-weight: 300;
   color: #fff;
 }
+
 .msg {
   font-size: 14.5px;
   text-align: center;
@@ -104,6 +112,7 @@ body {
   z-index: -1;
   transition: 0.3s;
 }
+
 .btn:after {
   content: "";
   width: 100%;
@@ -116,14 +125,17 @@ body {
   transition: 0.3s;
   transition-delay: 0.2s;
 }
+
 .btn:hover {
   color: black;
   cursor: pointer;
   font-weight: 600;
 }
+
 .btn:hover:before {
   top: 0;
 }
+
 .btn:hover:after {
   top: 0;
 }

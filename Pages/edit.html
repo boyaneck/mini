@@ -12,14 +12,14 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
 
 
-    <link rel="stylesheet" type="text/css" href="reply.css">
+    <link rel="stylesheet" type="text/css" href="../css/reply2.css">
 
     <script type="module">
 
         // Firebase SDK 라이브러리 가져오기
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
         import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-        import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        import { collection, addDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
         import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
         // Firebase 구성 정보 설정
@@ -36,31 +36,31 @@
         // Firebase 인스턴스 초기화
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
+            
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get("name");
+        const text = urlParams.get('text');
+        const postId = urlParams.get('id');
 
-
+        const nameInput = document.querySelector('#name');
+        const textInput = document.querySelector('#command');
         
-        $("#postingbtn").click(async function () {
-            let name = $('#name').val();
-            let command = $('#command').val();
-            let id = Math.random()
+        nameInput.placeholder = username;
+        textInput.placeholder = text;
 
-            console.log(name, command, id)
-            
-            let doc = { 
-                'id': id,
-                'name': name, 
-                'command': command
-            };
-            
-            await addDoc(collection(db, "messages"), doc);
-            
-            location.href='mainpage.html'
+        $('#postingbtn').click(async function(e) {
+        e.preventDefault() 
+        const username = $('#name').val();
+        const text = $('#command').val();
 
-            alert('응원 완료!')
-
-
+        try {
+            const docRef = doc(db, "messages", postId); // await deleteDoc(doc(db, "messages", storedId))
+            await updateDoc(docRef, {command:text, name:username});
+            window.location.replace('/mainpage.html'); 
+        } catch (err) {
+        console.log('err', err)
+        }
         })
-
         
     </script>
 </head>
@@ -68,14 +68,14 @@
 <body>
     <div class="wrapper">
         <form action="">
-            <h1>응원메시지</h1>
+            <h1 style="font-weight: 700;">메시지 수정</h1>
 
             <div class="input-box">
-                <input id="name" type="email" placeholder="이름" required>
+                <input id="name" type="text" placeholder="이름" required>
                 <i class='bx bx-user-check'></i>
             </div>
             <div class="input-box">
-                <input id="command" type="email" placeholder="응원메시지를 적어주세요" cols="30" rows="10" required></input>
+                <input id="command" type="text" placeholder="응원메시지를 적어주세요" cols="30" rows="10" required></input>
                 <i class='bx bx-message-rounded-dots'></i>
             </div>
             <div>
@@ -83,7 +83,7 @@
             </div>
             <div>
 
-                <button id="postingbtn" class="btn">등록하기</button>
+                <button id="postingbtn" class="btn">수정하기</button>
             </div>
         </form>
         <div class="msg">당신의 작은 응원이 큰 힘이 됩니다.</div>

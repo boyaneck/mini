@@ -40,8 +40,14 @@ const getByName = async (name) => {
   });
 }
 
-getByName('마리차')
-
+const deleteItem = async (item) => {
+  const d = query(collection(db, 'messages'), where('id', '==', item.id));
+  const docSnap = await getDocs(d);
+  docSnap.forEach((doc) => {
+    console.log(doc.data())
+    deleteDoc(doc.data());
+  });
+}
 
 
 // RegisterPage - Save Data

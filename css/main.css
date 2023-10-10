@@ -10,6 +10,7 @@ body {
 .inner {
   width: 1000px;
   margin: 0 auto;
+  text-align: left;
   position: relative;
 }
 
@@ -143,6 +144,10 @@ header .item .team_contents .team_info > ul > ul > li .mini_profile {
   padding: 30px 0;
 }
 
+.hide {
+  display: none;
+}
+
 /* MESSAGE */
 .message {
 
@@ -155,7 +160,13 @@ header .item .team_contents .team_info > ul > ul > li .mini_profile {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
   padding: 50px;
+}
+
+.message_button {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .message .message_button {
@@ -185,19 +196,26 @@ header .item .team_contents .team_info > ul > ul > li .mini_profile {
   font-weight: 500;
 }
 
-.message .commands > p {
+.message .commands .command {
   background-color: #fbd14b;
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 50px;
 }
 
-.message .commands .command .deletebtn {
+.message .commands .command .cmdbtn {
   display: none;
 }
 
-.message .commands .command:hover .deletebtn {
+.message .commands .command:hover .cmdbtn {
   display: block;
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.message .commands .command .cmdbtn .editbtn {
+  margin-right: 10px;
 }
 
 #to-top {

@@ -13,6 +13,7 @@
 
 
   <!-- GSAP & ScrollToPlugin -->
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
     integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -28,14 +29,15 @@
   <link rel="stylesheet" type="text/css" href="css/profile.css">
 
 
-  <script defer src="./js/main.js"></script>
+  <!-- <script defer src="./js/main.js"></script> -->
 
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
     import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-    import { collection, addDoc, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    import { collection, addDoc, deleteDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
     import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    // import { deleteDoc, doc } from "firebase/firestore";
 
     
     // Firebase 구성 정보 설정
@@ -46,7 +48,7 @@
       storageBucket: "mini-intro.appspot.com",
       messagingSenderId: "634745339046",
       appId: "1:634745339046:web:a3c1932b0c8940e0290867",
-      measurementId: "G-L43KNKS7DB"
+      measurementId: "G-L43KNKS7DB",
     };
 
 
@@ -55,79 +57,97 @@
     const db = getFirestore(app);
 
 
+    let docs = await getDocs(collection(db, "messages"));    
 
 
-
-
-    let docs = await getDocs(collection(db, "messages"));
-
-    $('#commands').on("click", ".deletebtn", function () {
-      console.log(docs);
-      const commandEl = $(this).closest(".command");// 가장 가까운 값
-      const storedId = commandEl.find(".del").text();
-       
-    })
 
     
 
     docs.forEach((doc) => {
       let row = doc.data();
       let docId = doc.id // 문서 id
+
       let name = row['name'];
       let command = row['command'];
       let id = row['id']; // 문서 내 id
-      let temp_html =
+
+      let temp_html = 
         `
-        <div class="command"><span id="name">${name}</span>: <span>${command}</span>
-          <div class="del" data-id=${docId}></div>
+        <div class="command">
+          <span id="name">${name}</span>: <span id="command">${command}</span>
+          <div data-id=${docId} class="del"></div>
+          <div data-id=${docId} class="edit"></div>
           <div class="cmdbtn">
-            <div class="update" data-name=${name}></div>
             <button class="editbtn">수정</button>
-            <button class="deletebtn">삭제</button>
+            <button class="deletebtn" onclick="()=>handleDeleteButtonClick()">삭제</button>
           </div>
         </div>
         `;
       $('#commands').append(temp_html);
+      
     })
+
     // 삭제 버튼
     $('#commands').on("click", ".deletebtn", async function() {
       const commandEl = $(this).closest(".command"); // 가장 가까운 값 가져옴
       const storedId = commandEl.find(".del").data('id');  // .del을 찾아 텍스트값을 가져온다.
       console.log(storedId);
-      
-      //(1)
+
       try {
-        const docRef = doc(db, "messages", storedId);
+        const docRef = doc(db, "messages", storedId); // await deleteDoc(doc(db, "messages", storedId))
         await deleteDoc(docRef);
-        // await deleteDoc(doc(db, "messages", storedId))
-        // reload
-        window.location.reload();
+        window.location.reload(); 
       } catch (err) {
         console.log('err', err)
       }
+
     })
-    
-    //수정버튼
-    $('#commands').on("click", ".editbtn", async function() { 
+
+    // 수정
+    $('#commands').on("click", ".editbtn", async function(e) {
       const commandEl = $(this).closest(".command"); // 가장 가까운 값 가져옴
-      const storedId = commandEl.find(".del").data('id');  // .del을 찾아 텍스트값을 가져온다.
+      const username = commandEl.find("#name").text();
+      const text = commandEl.find("#command").text();
+      const id = $('.edit').data('id');
+      window.location.href=`./Pages/edit.html?name=${username}&&text=${text}&&id=${id}`
       
-      const upname=commandEl.find(".update").data('name');
-      console.log(upname);
-      location.href="update.html?id="+storedId;
+
+      const storedId = commandEl.find(".edit").data('id');  // .del을 찾아 텍스트값을 가져온다.
+      console.log(username, text, storedId);
+
+      // try {
+      //   const docRef = doc(db, "messages", storedId); // await deleteDoc(doc(db, "messages", storedId))
+      //   await updateDoc(docRef, {name, text});
+      //   window.location.reload(); 
+      // } catch (err) {
+      //   console.log('err', err)
+      // }
 
     })
 
 
 
-    $('.mini_profile').click(async function () {
-      location.href = "./Pages/detailPage/detail.html?id="
+
+
+    $('.mini_profile').click(async function() {
+      location.href="./Pages/detailPage/detail.html?id="
     })
 
 
-
-
-
+    // TOKEN
+    function getToken() {
+      const token = localStorage.getItem('token');
+      return token
+    }
+    
+    function isAdmin() {
+      if (getToken() === null) {
+      $('.deletebtn').addClass('hide')
+      $('.editbtn').addClass('hide')
+  }
+}
+getToken();
+isAdmin();
 
   </script>
 
@@ -229,11 +249,8 @@
   <!-- CHEERING MESSAGE -->
   <div class="message">
     <div class="inner">
-      <button class="message_button" onclick="location.href='reply2.html'">응원메시지 남기기</button>
+      <button class="message_button" onclick="location.href='./Pages/reply.html'">응원메시지 남기기</button>
       <div id="commands" class="commands">
-        <p class="command"><span id="ddd">이름</span>: <span>응원메시지</span>
-          <button class="deletebtn" style="background-color: black;" id="aaa" type="button">삭제</button>
-        </p>
       </div>
 
 
@@ -244,7 +261,8 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="inner"></div>
+    <div class="inner">
+    </div>
   </footer>
 
   <!-- 스크롤 길 경우 사용 -->
@@ -252,11 +270,7 @@
     <div class="material-icons">arrow_upward</div>
   </div>
 
-
-
-
-
-
+  <script src="./token.js"></script>
 </body>
 
 </html>
