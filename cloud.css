@@ -7,11 +7,12 @@
 }
 
 body{
-    display:flex;
-    justify-content:center;
-    align-items: center;
+    /* display:flex; */
+    /* justify-content:center; */
+    /* align-items: center; */
     min-height: 100vh;
-    background: url('https://postfiles.pstatic.net/MjAxODA3MjdfMjg1/MDAxNTMyNjk3NTA5OTAz.a1MGiGaJG2rvK-Y5zyl386QuAyHwEfXjhaH8XlxlFkAg.KVma5_hewSuqcZVvH9CRQ1CY6ZriR4ymRdBTJte-Kiwg.JPEG.amykims/despicable_me_2_minions-wallpaper-1920x1080.jpg?type=w966');
+    /* background: url('https://postfiles.pstatic.net/MjAxODA3MjdfMjg1/MDAxNTMyNjk3NTA5OTAz.a1MGiGaJG2rvK-Y5zyl386QuAyHwEfXjhaH8XlxlFkAg.KVma5_hewSuqcZVvH9CRQ1CY6ZriR4ymRdBTJte-Kiwg.JPEG.amykims/despicable_me_2_minions-wallpaper-1920x1080.jpg?type=w966'); */
+    background:gray;
 }
 
 .container{
@@ -40,6 +41,7 @@ body{
 }
 .cloud::before
 {
+    
    top:-50px;
     content:'';
     position: absolute;

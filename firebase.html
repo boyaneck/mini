@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Fetch 시작하기</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        .hey {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .text {
+            font-weight: 550;
+            border-radius: 50px;
+            padding: 10px;
+        }
+    </style>
+    <script>
+        function hey() {
+            let url = 'http://spartacodingclub.shop/sparta_api/seoulair';
+            fetch(url).then(res => res.json()).then(data => {
+                let rows = data['RealtimeCityAir']['row'];
+                rows.forEach(e => {
+                    let gu_name = e['MSRSTE_NM'];
+                    let gu_mise = e['IDEX_NM'];
+                    console.log(gu_name, gu_mise)
+                    let abc = ``;
+                    let number = Math.floor(Math.random() * (6 - 1 + 1) + 1);
+                    // random * (max-min+1)+min)
+                    let color = ['red', 'orange', 'yellow', 'green', 'skyblue', 'purple', 'gray'];
+                    let color1 = color[number];
+
+
+                    let html = `<div class="hey" id="" ><span class="text" style="background-color:${color1}">" ${gu_name}와 ${gu_mise} "</span></div>
+                    `;
+
+                    $('#q1').append(html);
+
+
+                });
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="hey()">fetch 연습!</button>
+    <div id="q1"></div>
+</body>
+
+</html>
