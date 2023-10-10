@@ -27,6 +27,12 @@ img {
   border-radius: 100px;
 }
 
+.p1 {
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+}
+
 .p2 {
   width: 200px;
   height: 200px;
@@ -36,12 +42,6 @@ img {
   left: 0px;
   opacity: 0;
   transition: opacity 0.4s linear;
-  border-radius: 100px;
-}
-
-.p1 {
-  width: 200px;
-  height: 200px;
   border-radius: 100px;
 }
 

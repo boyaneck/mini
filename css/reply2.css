@@ -9,9 +9,10 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: url("https://postfiles.pstatic.net/MjAxODA3MjdfMjg1/MDAxNTMyNjk3NTA5OTAz.a1MGiGaJG2rvK-Y5zyl386QuAyHwEfXjhaH8XlxlFkAg.KVma5_hewSuqcZVvH9CRQ1CY6ZriR4ymRdBTJte-Kiwg.JPEG.amykims/despicable_me_2_minions-wallpaper-1920x1080.jpg?type=w966");
+  /* background: url("https://postfiles.pstatic.net/MjAxODA3MjdfMjg1/MDAxNTMyNjk3NTA5OTAz.a1MGiGaJG2rvK-Y5zyl386QuAyHwEfXjhaH8XlxlFkAg.KVma5_hewSuqcZVvH9CRQ1CY6ZriR4ymRdBTJte-Kiwg.JPEG.amykims/despicable_me_2_minions-wallpaper-1920x1080.jpg?type=w966"); */
   background-size: cover;
   background-position: center;
+  background-color: #555;
 }
 .wrapper {
   width: 420px;

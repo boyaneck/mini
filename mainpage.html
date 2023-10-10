@@ -28,7 +28,7 @@
   <link rel="stylesheet" type="text/css" href="css/profile.css">
 
 
-  <script defer src="./js/main.js"></script>
+  <!-- <script defer src="./js/main.js"></script> -->
 
 
   <script type="module">
@@ -58,16 +58,29 @@
     
 
 
-    let docs = await getDocs(collection(db, "messages"));
-
+    let docs = await getDocs(collection(db, "messages"));    
 
 
     $('.deletebtn').click(async function() {
-      let id = $('#id')
+      $('.command').remove();
 
-      await deleteDoc(doc(db, "messages", "id"));
+
+
+      alert('삭제 완료!')
+
+      // await deleteDoc(doc(db, "messages", ""));
 
     })
+
+    $('.editbtn').click(async function() {
+
+      
+      alert('편집 완료!')
+
+
+    })
+
+    
 
 
     docs.forEach((doc) => {
@@ -80,9 +93,12 @@
 
       let temp_html = 
         `
-        <p class="command"><span id="name">${name}</span>: <span>${command}</span>
-          <button class="deletebtn">삭제</button>
-        </p>
+        <div class="command"><span id="name">${name}</span>: <span>${command}</span>
+          <div class="cmdbtn">
+            <button class="editbtn">수정</button>
+            <button class="deletebtn">삭제</button>
+          </div>
+        </div>
         `;
 
       $('#commands').append(temp_html);
@@ -212,9 +228,12 @@
     <div class="inner">
       <button class="message_button" onclick="location.href='reply2.html'">응원메시지 남기기</button>
       <div id="commands" class="commands">
-        <p class="command"><span id="name">이름</span>: <span>응원메시지</span>
-          <button class="deletebtn">삭제</button>
-        </p>
+        <div class="command"><span id="name">이름</span>: <span>응원메시지</span>
+          <div class="cmdbtn">
+            <button class="editbtn">수정</button>
+            <button class="deletebtn">삭제</button>
+          </div>
+        </div>
       </div>
 
 
