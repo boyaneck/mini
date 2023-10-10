@@ -36,6 +36,7 @@
     import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
     import { collection, addDoc, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
     import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    // import { deleteDoc, doc } from "firebase/firestore";
 
     // Firebase 구성 정보 설정
     const firebaseConfig = {
@@ -53,59 +54,53 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
-  
-
-    
-
 
     let docs = await getDocs(collection(db, "messages"));    
 
 
-    $('.deletebtn').click(async function() {
-      $('.command').remove();
-
-
-
-      alert('삭제 완료!')
-
-      // await deleteDoc(doc(db, "messages", ""));
-
-    })
-
-    $('.editbtn').click(async function() {
-
-      
-      alert('편집 완료!')
-
-
-    })
-
-    
 
 
     docs.forEach((doc) => {
       let row = doc.data();
-      console.log(row);
+      let docId = doc.id // 문서 id
 
       let name = row['name'];
       let command = row['command'];
-      let id = row['id'];
+      let id = row['id']; // 문서 내 id
 
       let temp_html = 
         `
-        <div class="command"><span id="name">${name}</span>: <span>${command}</span>
+        <div class="command">
+          <span id="name">${name}</span>: <span id="command">${command}</span>
+          <div class="del">${docId}</div>
           <div class="cmdbtn">
             <button class="editbtn">수정</button>
-            <button class="deletebtn">삭제</button>
+            <button class="deletebtn" onclick="()=>handleDeleteButtonClick()">삭제</button>
           </div>
         </div>
         `;
 
       $('#commands').append(temp_html);
-
-      
       
     })
+
+    // 삭제 버튼
+    $('#commands').on("click", ".deletebtn", async function() {
+      const commandEl = $(this).closest(".command"); // 가장 가까운 값 가져옴
+      const storedId = commandEl.find(".del").text();  // .del을 찾아 텍스트값을 가져온다.
+      console.log(storedId);
+
+      try {
+        const docRef = doc(db, "messages", storedId); // await deleteDoc(doc(db, "messages", storedId))
+        await deleteDoc(docRef);
+        window.location.reload(); 
+      } catch (err) {
+        console.log('err', err)
+      }
+
+    })
+
+
 
 
 
@@ -228,12 +223,6 @@
     <div class="inner">
       <button class="message_button" onclick="location.href='reply2.html'">응원메시지 남기기</button>
       <div id="commands" class="commands">
-        <div class="command"><span id="name">이름</span>: <span>응원메시지</span>
-          <div class="cmdbtn">
-            <button class="editbtn">수정</button>
-            <button class="deletebtn">삭제</button>
-          </div>
-        </div>
       </div>
 
 
