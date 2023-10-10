@@ -9,8 +9,9 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: url("https://postfiles.pstatic.net/MjAxODA3MjdfMjg1/MDAxNTMyNjk3NTA5OTAz.a1MGiGaJG2rvK-Y5zyl386QuAyHwEfXjhaH8XlxlFkAg.KVma5_hewSuqcZVvH9CRQ1CY6ZriR4ymRdBTJte-Kiwg.JPEG.amykims/despicable_me_2_minions-wallpaper-1920x1080.jpg?type=w966");
-  background-size: cover;
+  background-image: url("http://design.gabia.com/wordpress/wp-content/uploads/2017/07/minions_04.jpg");
+
+  background-size: cover !important;
   background-position: center;
 }
 .wrapper {
@@ -18,7 +19,7 @@ body {
   background: transparent;
   color: #fff;
   border: 2px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(10px);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   padding: 30px 40px;
@@ -43,7 +44,7 @@ body {
   background: transparent;
   border: none;
   outline: none;
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  border: 3px solid rgba(255, 255, 255, 0.2);
   border-radius: 40px;
   padding: 20px 45px 20px 20px;
 }
@@ -51,7 +52,7 @@ body {
 .input-box input::placeholder,
 .input-box textarea::placeholder {
   color: #fff;
-  font-weight: 300;
+  font-weight: 600;
 }
 .input-box i {
   position: absolute;
