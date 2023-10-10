@@ -1,0 +1,14 @@
+
+
+*{
+    box-sizing: border-box;
+}
+
+/* body는 통일 해야함  */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: seagreen;
+}
