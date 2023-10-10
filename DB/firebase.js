@@ -40,7 +40,6 @@ const getByName = async (name) => {
   });
 }
 
-getByName('마리차')
 
 
 

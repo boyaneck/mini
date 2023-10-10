@@ -29,7 +29,7 @@ async function getByUsername(username) {
     console.log(item.data());
   })
 }
-getByUsername('이락균')
+
 
 // Profile data init
 let profile = [];
