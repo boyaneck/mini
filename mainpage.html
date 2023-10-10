@@ -1,146 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cheer Up!</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./css/main.css" />
 
-
-    <!-- 민용-->
-    <link rel="stylesheet" type="text/css" href="css/button.css">
-    <link rel="stylesheet" type="text/css" href="css/profile.css">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cheer Up!</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
 
 
-    <!-- GSAP & ScrollToPlugin -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
-      integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"
-      integrity="sha512-v/m68W+vaGN/6igoyFpd4GlQzu0jx9/n5gr2PKq5vif+RObyGKHse384YHrOULaxZ810XhlHUrmB3U8UnPB19Q=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
 
-    <script defer src="./js/main.js"></script>
-  </head>
+  <!-- GSAP & ScrollToPlugin -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+    integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"
+    integrity="sha512-v/m68W+vaGN/6igoyFpd4GlQzu0jx9/n5gr2PKq5vif+RObyGKHse384YHrOULaxZ810XhlHUrmB3U8UnPB19Q=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-  <body>
-    <!-- HEADER -->
-    <header>
-      <div class="inner">
-        <div class="item">
-          <!-- TITLE -->
-          <div class="team_title">Team T2F1</div>
-            <!-- TEAM INFO -->
-          <div class="team_contents">
-            <div class="team_info">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500;600;700;800&family=Roboto:wght@300&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./css/main.css" />
+  <link rel="stylesheet" type="text/css" href="css/button.css">
+  <link rel="stylesheet" type="text/css" href="css/profile.css">
+
+
+  <script defer src="./js/main.js"></script>
+
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+    import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    import { collection, addDoc, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+    // Firebase 구성 정보 설정
+    const firebaseConfig = {
+      apiKey: "AIzaSyDCMmkPhiF-vFVmadyBDgVoMHGL8tn-G9M",
+      authDomain: "mini-intro.firebaseapp.com",
+      projectId: "mini-intro",
+      storageBucket: "mini-intro.appspot.com",
+      messagingSenderId: "634745339046",
+      appId: "1:634745339046:web:a3c1932b0c8940e0290867",
+      measurementId: "G-L43KNKS7DB"
+    };
+  
+
+    // Firebase 인스턴스 초기화
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+  
+
+    
+
+
+    let docs = await getDocs(collection(db, "messages"));
+
+
+
+    $('.deletebtn').click(async function() {
+      let id = $('#id')
+
+      await deleteDoc(doc(db, "messages", "id"));
+
+    })
+
+
+    docs.forEach((doc) => {
+      let row = doc.data();
+      console.log(row);
+
+      let name = row['name'];
+      let command = row['command'];
+      let id = row['id'];
+
+      let temp_html = 
+        `
+        <p class="command"><span id="name">${name}</span>: <span>${command}</span>
+          <button class="deletebtn">삭제</button>
+        </p>
+        `;
+
+      $('#commands').append(temp_html);
+
+      
+      
+    })
+
+
+
+    $('.mini_profile').click(async function() {
+      location.href="./Pages/detailPage/detail.html?id="
+    })
+
+
+
+    
+
+
+  </script>
+
+
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="inner">
+      <div class="item">
+        <!-- TITLE -->
+        <div class="team_title">Team T2F1</div>
+        <!-- TEAM INFO -->
+        <div class="team_contents">
+          <div class="team_info">
+            <ul>
+              <h3>TEAM</h3>
               <ul>
-                <h3>TEAM</h3>
-                <ul>
-                  <li>팀명 : T2F1</li>
-                  <li>팀 소개 : 사용자들의 니즈를 파악하여 사용자가 요구한 문제를 해결하자!</li>
-                </ul>
-                </ul>
-                <ul>
-                  <h3>MERBER</h3>
-                  <ul>
-                    <li>진민용 - 다같이 LEVEL UP!</li>
-                    <li>이락균 - 가보자고오~.~</li>
-                    <li>김은비 - 항상 즐겁게 킵고잉!</li>
-                  </ul>
-                </ul>
-                <ul>
-                  <h3>PROJECT</h3>
-                  <ul>
-                    <li>Cheer Up!</li>
-                    <li>약 5개월 간의 개발자 과정을 잘 마무리 하여 “어엿한 주니어 개발자”로 성장하기 위해 서로를 응원하는 마음을 담은 프로젝트 입니다! </li>
-                  </ul>
-                </ul>
-                <ul>
-                  <h3>TEAM GOAL</h3>
-                  <ul>
-                    <li>사용자들의 니즈를 파악하여 사용자가 요구한 문제를 해결하자!</li>
-                  </ul>
-                </ul>
+                <h4>팀 T2F1</h4>
+                <img src="" alt="">
+                <p>사용자들의 니즈를 파악하여 사용자가 요구한 문제를 해결하자!</p>
+              </ul>
+            </ul>
+            <ul>
+              <h3>MERBER</h3>
+              <ul>
+                <li>
+                  <a href="./Pages/detailPage/detail.html?id=0" class="mini_profile">
+                  </a>
+                  <h4>진민용<p>다같이 LEVEL UP!</p>
+                  </h4>
+                </li>
+                <li>
+                  <a href="./Pages/detailPage/detail.html?id=1" class="mini_profile"></a>
+                  <h4>김은비<p>다같이 LEVEL UP!</p>
+                  </h4>
+                </li>
+                <li>
+                  <a href="./Pages/detailPage/detail.html?id=2" class="mini_profile">
+                  </a>
+                  <h4>이락균<p>다같이 LEVEL UP!</p>
+                  </h4>
+                </li>
+              </ul>
+            </ul>
+            <ul>
+              <h3>PROJECT</h3>
+              <ul>
+                <h4>프로젝트 Cheer Up!</h4>
+                <p>약 5개월 간의 개발자 과정을 잘 마무리 하여 “어엿한 주니어 개발자”로 성장하기 위해 서로를 응원하는 마음을 담은 프로젝트 입니다!</p>
+              </ul>
+            </ul>
+            <ul>
+              <h3>TEAM GOAL</h3>
+              <ul>
+                <h4>앞으로의 팀 목표</h4>
+                <p>사용자들의 니즈를 파악하여 사용자가 요구한 문제를 해결하자!</p>
+              </ul>
+            </ul>
+          </div>
+        </div>
+  </header>
+
+  <!-- PROFILE -->
+  <div class="profile">
+
+    <div class="inner">
+
+      <div class="team_profiles">
+        <div class="profile_cards">
+          <a href="./Pages/detailPage/detail.html?id=0">
+            <div class="image" style="text-align: center; height: 200px">
+              <img src="image/img0.jpg" alt="" class="p1" />
+              <img src="image/pop-art-2706464_1280.jpg" alt="" class="p2" />
             </div>
-        </div>
-    </header>
-
-    <!-- PROFILE -->
-    <div class="profile">
-
-      <div class="inner">
-        <!-- 민용-->
-    <div class="team_profiles">
-      <div class="profile_cards">
-        <a href="./Pages/detailPage/detail.html?id=0">
-          <div class="image" style="text-align: center; height: 200px">
-            <img src="image/city-3764330_1280.jpg" alt="" class="p1" />
-            <img src="image/pop-art-2706464_1280.jpg" alt="" class="p2" />
-          </div>
-        </a>
-        <a href="./Pages/detailPage/detail.html?id=1">
-          <div class="image" style="text-align: center; height: 200px">
-            <img src="image/city-3764330_1280.jpg" alt="" class="p1" />
-            <img src="image/pop-art-2706464_1280.jpg" alt="" class="p2" />
-          </div>
-        </a>
-        <a href="./Pages/detailPage/detail.html?id=2">
-          <div class="image" style="text-align: center; height: 200px">
-            <img src="image/city-3764330_1280.jpg" alt="" class="p1" />
-            <img src="image/pop-art-2706464_1280.jpg" alt="" class="p2" />
-          </div>
-        </a>
-      </div>
-
-      <div class="profile_buttons">
-        <div class="btn" onclick="register()">프로필 수정</div>
-        <div class="btn" onclick="cancle()">취소하기</div>
-
-        <div class="btn" onclick="location.href='./Pages/register.html'">
-          같이 응원하기!
-        </div>
-      </div>
-    </div>
-
-      </div>
-
-    </div>
-
-    <!-- CHEERING MESSAGE -->
-    <div class="message">
-        <div class="inner">
-            <div class="item">
-                <button class="message_button" onclick="location.href='./Pages/register.html'">Cheer Up!</button>
+          </a>
+          <a href="./Pages/detailPage/detail.html?id=1">
+            <div class="image" style="text-align: center; height: 200px">
+              <img src="image/img1.jpg" alt="" class="p1" />
+              <img src="image/pop-art-2706464_1280.jpg" alt="" class="p2" />
             </div>
+          </a>
+          <a href="./Pages/detailPage/detail.html?id=2">
+            <div class="image" style="text-align: center; height: 200px">
+              <img src="image/img2.jpg" alt="" class="p1" />
+              <img src="image/pop-art-2706464_1280.jpg" alt="" class="p2" />
+            </div>
+          </a>
         </div>
+
+        <!-- <div class="profile_buttons">
+          <div class="btn" onclick="register()">프로필 수정</div>
+
+          <div class="btn" onclick="cancle()">취소하기</div>
+
+          <div class="btn" onclick="location.href='reply2.html'">
+            같이 응원하기!
+          </div>
+        </div> -->
       </div>
+
     </div>
 
-    <!-- FOOTER -->
-    <footer>
-      <div class="inner"></div>
-    </footer>
+  </div>
 
-    <!-- 스크롤 길 경우 사용 -->
-    <div id="to-top">
-      <div class="material-icons">arrow_upward</div>
+  <!-- CHEERING MESSAGE -->
+  <div class="message">
+    <div class="inner">
+      <button class="message_button" onclick="location.href='reply2.html'">응원메시지 남기기</button>
+      <div id="commands" class="commands">
+        <p class="command"><span id="name">이름</span>: <span>응원메시지</span>
+          <button class="deletebtn">삭제</button>
+        </p>
+      </div>
+
+
+
     </div>
+  </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="inner"></div>
+  </footer>
+
+  <!-- 스크롤 길 경우 사용 -->
+  <div id="to-top">
+    <div class="material-icons">arrow_upward</div>
+  </div>
 
 
 
