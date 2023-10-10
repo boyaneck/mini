@@ -1,9 +1,9 @@
 body {
-  background-color: #fff;
+  background-color: #fffcf0;
   color: #333333;
   font-size: 16px;
   font-weight: 400;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Open Sans", sans-serif;
   line-height: 1.4;
 }
 
@@ -16,12 +16,12 @@ body {
 /* HEADER */
 header {
   z-index: 1;
-  padding-bottom: 30px;
+  padding-bottom: 50px;
 }
 
 header .item .team_title {
   color: #222;
-  width: 300px;
+  width: 700px;
   top: 0;
   bottom: 0;
   left: 0;
@@ -29,16 +29,15 @@ header .item .team_title {
   margin: auto;
   text-align: center;
   color: #333333;
-  padding: 40px 30px 0 30px;
-  font-size: 45px;
-  font-weight: 900;
-  font-family: Arial, Helvetica, sans-serif;
+  padding: 60px 30px 20px 30px;
+  font-size: 50px;
+  font-weight: 800;
 }
 
 header .item:hover .team_title {
   color: #888;
-  background-color: #fff;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 
 header .item .team_contents {
@@ -53,7 +52,6 @@ header .item:hover .team_contents {
   justify-content: center;
   align-items: center;
   border-radius: 17px;
-  transition-duration: 2s;
 }
 
 header .item .team_contents .team_info {
@@ -70,18 +68,21 @@ header .item .team_contents .team_info > ul {
 }
 
 header .item .team_contents .team_info > ul h3 {
-  background-color: #f8cd07;
+  background-color: #fbd14b;
   color: #fff;
   padding: 10px 20px;
-  width: 130px;
-  font-size: 21px;
-  font-weight: 600;
+  width: 160px;
+  font-size: 24px;
+  font-weight: 700;
   border-radius: 10px;
   text-align: center;
+  font-family: "Open Sans", sans-serif;
 }
 
 header .item .team_contents .team_info > ul:hover h3 {
-  background-color: #ad6cf7;
+  background-color: #6a60a9;
+  box-shadow: 0 0 7px #555;
+  transition: all 0.3s ease-in-out;
 }
 
 header .item .team_contents .team_info > ul > ul {
@@ -92,49 +93,108 @@ header .item .team_contents .team_info > ul:hover > ul {
   display: block;
   width: 300px;
   margin-top: 25px;
-
   padding: 30px;
-  background-color: #e2dcdc;
+  background-color: #dedcee;
   border-radius: 10px;
-  border: 1px solid #999;
+  font-family: "Roboto", sans-serif;
+  transition: all 0.3s ease-in-out;
+}
+
+header .item .team_contents .team_info > ul > ul img {
+  width: 300px;
+  height: 300px;
+  background-color: #555;
+}
+
+header .item .team_contents .team_info > ul > ul h4 {
+  font-weight: 600;
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+}
+
+header .item .team_contents .team_info > ul > ul p {
+  font-weight: 500;
+  font-size: 15px;
+  margin-top: 10px;
 }
 
 header .item .team_contents .team_info > ul > ul > li {
-  padding-bottom: 10px;
-  font-size: 18px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+header .item .team_contents .team_info > ul > ul > li .mini_profile {
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+  margin-right: 20px;
+  background-color: #fff;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* PROFILE */
 .profile {
-  background-color: bisque;
   padding: 30px 0;
 }
 
+/* MESSAGE */
 .message {
   height: 500px;
-  background-color: #888888;
 }
 
 .message > .inner {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 50px;
 }
 
 .message .message_button {
-  background-color: #f8cd07;
-  color: #555;
+  background-color: transparent;
+  color: #333;
   font-size: 23px;
-  padding: 9px 21px;
-  border: 3px solid #555;
-  border-radius: 10px;
+  padding: 10px 20px;
+  border: 4px solid #fbd14b;
+  border-radius: 30px;
+  margin-bottom: 40px;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
 }
 
 .message .message_button:hover {
   cursor: pointer;
   color: #fff;
-  border-color: #fff;
+  background-color: #fbd14b;
+}
+
+.message .commands {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.message .commands > p {
+  background-color: #fbd14b;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.message .commands .command .deletebtn {
+  display: none;
+}
+
+.message .commands .command:hover .deletebtn {
+  display: block;
 }
 
 #to-top {
