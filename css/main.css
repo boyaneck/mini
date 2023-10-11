@@ -1,29 +1,55 @@
+* {
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background-color: #fffcf0 ;
+  background-color: #fffcf0;
   color: #333333;
   font-size: 16px;
   font-weight: 400;
   font-family: "Open Sans", sans-serif;
   line-height: 1.4;
+  width: 100vw;
 }
 
 .inner {
-  width: 1000px;
+  width: 50%;
   margin: 0 auto;
   text-align: left;
   position: relative;
 }
 
+.message {
+  width: 100%;
+  position: relative;
+}
+
+.support {
+  font-weight: 600;
+  font-size: 2rem;
+  position: absolute;
+  bottom: -32%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.support>span {
+  font-size: 3rem;
+  color: #8250DF;
+}
+
 /* HEADER */
 header {
-  background:  #fffcf0 ;;
+  width: 100%;
+  background: #fffcf0;
   z-index: 1;
-  padding-bottom: 50px;
 }
 
 header .item .team_title {
   color: #222;
-  width: 700px;
+  width: fit-content;
   top: 0;
   bottom: 0;
   left: 0;
@@ -31,9 +57,9 @@ header .item .team_title {
   margin: auto;
   text-align: center;
   color: #333333;
-  padding: 60px 30px 20px 30px;
   font-size: 50px;
   font-weight: 800;
+  padding: 2rem 3rem;
 }
 
 header .item:hover .team_title {
@@ -62,14 +88,14 @@ header .item .team_contents .team_info {
   margin-top: 20px;
 }
 
-header .item .team_contents .team_info > ul {
+header .item .team_contents .team_info>ul {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-header .item .team_contents .team_info > ul h3 {
+header .item .team_contents .team_info>ul h3 {
   background-color: #fbd14b;
   color: #fff;
   padding: 10px 20px;
@@ -81,17 +107,17 @@ header .item .team_contents .team_info > ul h3 {
   font-family: "Open Sans", sans-serif;
 }
 
-header .item .team_contents .team_info > ul:hover h3 {
+header .item .team_contents .team_info>ul:hover h3 {
   background-color: #6a60a9;
   box-shadow: 0 0 7px #555;
   transition: all 0.3s ease-in-out;
 }
 
-header .item .team_contents .team_info > ul > ul {
+header .item .team_contents .team_info>ul>ul {
   display: none;
 }
 
-header .item .team_contents .team_info > ul:hover > ul {
+header .item .team_contents .team_info>ul:hover>ul {
   display: block;
   width: 300px;
   margin-top: 25px;
@@ -102,7 +128,7 @@ header .item .team_contents .team_info > ul:hover > ul {
   transition: all 0.3s ease-in-out;
 }
 
-header .item .team_contents .team_info > ul > ul img {
+header .item .team_contents .team_info>ul>ul img {
   width: 300px;
   height: 300px;
   background-color: #555;
@@ -110,26 +136,26 @@ header .item .team_contents .team_info > ul > ul img {
   margin-left: -5px;
 }
 
-header .item .team_contents .team_info > ul > ul h4 {
+header .item .team_contents .team_info>ul>ul h4 {
   font-weight: 600;
   font-family: "Open Sans", sans-serif;
   font-size: 20px;
 }
 
-header .item .team_contents .team_info > ul > ul p {
+header .item .team_contents .team_info>ul>ul p {
   font-weight: 500;
   font-size: 15px;
   margin-top: 10px;
 }
 
-header .item .team_contents .team_info > ul > ul > li {
+header .item .team_contents .team_info>ul>ul>li {
   display: flex;
   flex-direction: row;
   margin-bottom: 20px;
   align-items: center;
 }
 
-header .item .team_contents .team_info > ul > ul > li .mini_profile {
+header .item .team_contents .team_info>ul>ul>li .mini_profile {
   width: 50px;
   height: 50px;
   border-radius: 100px;
@@ -142,31 +168,15 @@ header .item .team_contents .team_info > ul > ul > li .mini_profile {
 }
 
 /* PROFILE */
-.profile {
-  padding: 30px 0;
-}
-
 .hide {
   display: none;
 }
 
 /* MESSAGE */
-.message {
-
-  height: 500px;
-}
-
-.message > .inner {
-  
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 50px;
-}
 
 .message_button {
+  position: absolute;
+  bottom: -75%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -189,36 +199,55 @@ header .item .team_contents .team_info > ul > ul > li .mini_profile {
   background-color: #fbd14b;
 }
 
-.message .commands {
+
+.message {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 18px;
   font-weight: 500;
+  background-color: rgba(255, 248, 50, 0.1);
+  border-radius: 15px;
 }
 
-.message .commands .command {
+.message .command {
   background-color: #fbd14b;
-  padding: 10px;
+  padding: 1rem;
   margin-bottom: 10px;
-  border-radius: 50px;
+  border-radius: 12px;
 }
 
-.message .commands .command .cmdbtn {
+.message .command .cmdbtn {
   display: none;
 }
 
-.message .commands .command:hover .cmdbtn {
+.message .command:hover .cmdbtn {
   display: block;
   display: flex;
   justify-content: center;
   margin-top: 5px;
 }
 
-.message .commands .command .cmdbtn .editbtn {
+.message .command .cmdbtn .editbtn {
   margin-right: 10px;
 }
+
+.cmdbtn button {
+  padding: 0.3rem 1rem;
+  border-radius: 5px;
+}
+
+.commands::-webkit-scrollbar {
+  width: 8px;
+  height: 100%;
+}
+
+.commands::-webkit-scrollbar-thumb {
+  background: #d3d3d3;
+  border-radius: 10px;
+}
+
 
 #to-top {
   width: 42px;
@@ -235,4 +264,101 @@ header .item .team_contents .team_info > ul > ul > li .mini_profile {
   right: 30px;
   bottom: 30px;
   z-index: 9;
+}
+
+
+.team_profiles {
+  padding: 0 0;
+}
+
+.message {
+  width: fit-content;
+  margin: auto;
+}
+
+#commands {
+  width: 80vw;
+  height: 100%;
+  max-height: 300px;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: auto;
+  padding: 1rem;
+}
+
+.command {
+  width: fit-content;
+  color: rgb(20, 20, 20);
+  font-weight: 600;
+  margin-block: 0.65rem;
+}
+
+.profile {
+  margin-bottom: 5px;
+}
+
+.p2 {
+  border: 3px solid #fbd14b;
+}
+
+
+@media screen and (max-width:768px) {
+
+  .inner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .profile {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .message {
+    width: 100%;
+    margin: auto;
+  }
+
+  header .item .team_contents .team_info {
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  header .item .team_contents .team_info>ul h3 {
+    width: fit-content;
+    background-color: #fbd14b;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 24px;
+    font-weight: 700;
+    border-radius: 10px;
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+  }
+
+  .team_profiles {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0;
+  }
+
+  #commands {
+    width: 100%;
+  }
+
+  .command {
+    width: 100%;
+  }
+
+  .img {
+    width: 100%;
+  }
 }

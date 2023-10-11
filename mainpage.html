@@ -77,7 +77,7 @@
 
       let temp_html = 
         `
-        <div class="command" style="background-color:${color1}">
+        <li class="command" style="background-color:${color1}">
           <span id="name">${name}</span>: <span id="command">${command}</span>
           <div data-id=${docId} class="del"></div>
           <div data-id=${docId} class="edit"></div>
@@ -85,9 +85,12 @@
             <button class="editbtn">수정</button>
             <button class="deletebtn" onclick="()=>handleDeleteButtonClick()">삭제</button>
           </div>
-        </div>
-        `;
-      $('#commands').append(temp_html);
+        </li>
+        `
+      $('#commands').append(temp_html)
+      let supportText = `현재 <span>${docs.size}</span> 명 응원 중!`
+      $('.support').html(supportText)
+      
       
     })
 
@@ -206,7 +209,7 @@ isAdmin();
               </ul>
             </ul>
             <ul>
-              <h3>TEAM GOAL</h3>
+              <h3>GOAL</h3>
               <ul>
                 <h4>앞으로의 팀 목표</h4>
                 <p>사용자들의 니즈를 파악하고 분석하여 요구한 문제를 해결하고 많은 사용자들이 이용할 수 있는 프로그램을 개발하자!</p>
@@ -219,7 +222,7 @@ isAdmin();
   <!-- PROFILE -->
   <div class="profile">
 
-    <div class="inner">
+
 
       <div class="team_profiles">
         <div class="profile_cards">
@@ -246,20 +249,16 @@ isAdmin();
 
       </div>
 
-    </div>
+
 
   </div>
 
   <!-- CHEERING MESSAGE -->
   <div class="message">
-    <div class="inner">
+      <h4 class="support"></h4>
       <button class="message_button" onclick="location.href='./Pages/reply.html'">응원메시지 남기기</button>
-      <div id="commands" class="commands">
-      </div>
-
-
-
-    </div>
+      <ul id="commands" class="commands">
+      </ul>
   </div>
 
 
@@ -270,9 +269,9 @@ isAdmin();
   </footer>
 
   <!-- 스크롤 길 경우 사용 -->
-  <div id="to-top">
+  <!-- <div id="to-top">
     <div class="material-icons">arrow_upward</div>
-  </div>
+  </div> -->
 
   <script src="./token.js"></script>
 </body>
