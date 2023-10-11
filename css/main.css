@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 
+
 body {
   background-color: #fffcf0;
   background-color: #fffcf0;
@@ -129,7 +130,10 @@ header .item .team_contents .team_info>ul:hover>ul {
   font-family: "Roboto", sans-serif;
   transition: all 0.3s ease-in-out;
 }
+header .item .team_contents .team_info>ul:hover>img.p2 {
 
+  
+}
 header .item .team_contents .team_info>ul>ul img {
   width: 300px;
   height: 300px;
