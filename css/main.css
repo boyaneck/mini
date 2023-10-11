@@ -6,6 +6,7 @@
 
 body {
   background-color: #fffcf0;
+  background-color: #fffcf0;
   color: #333333;
   font-size: 16px;
   font-weight: 400;
@@ -43,6 +44,7 @@ body {
 /* HEADER */
 header {
   width: 100%;
+  background: #fffcf0;
   background: #fffcf0;
   z-index: 1;
 }
@@ -159,12 +161,20 @@ header .item .team_contents .team_info>ul>ul>li .mini_profile {
   width: 50px;
   height: 50px;
   border-radius: 100px;
-  margin-right: 20px;
+  margin-right: 25px;
   background-color: #fff;
   text-decoration: none;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+header .item .team_contents .team_info > ul > ul > li .mini_profile > span {
+  font-size: 30px;
+  /* background-color: #6a60a9; */
+  margin-top: 2px;
 }
 
 /* PROFILE */
@@ -173,6 +183,18 @@ header .item .team_contents .team_info>ul>ul>li .mini_profile {
 }
 
 /* MESSAGE */
+.message {
+  height: 500px;
+}
+
+.message > .inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 50px;
+}
 
 .message_button {
   position: absolute;
@@ -213,7 +235,7 @@ header .item .team_contents .team_info>ul>ul>li .mini_profile {
 
 .message .command {
   background-color: #fbd14b;
-  padding: 1rem;
+  padding: 1rem 30px;
   margin-bottom: 10px;
   border-radius: 12px;
 }
@@ -227,6 +249,24 @@ header .item .team_contents .team_info>ul>ul>li .mini_profile {
   display: flex;
   justify-content: center;
   margin-top: 5px;
+}
+
+.message .commands .command .cmdbtn > button {
+  border-radius: 20px;
+  padding: 5px 10px;
+  background-color: #fff;
+  border-width: 0px;
+  align-content: center;
+  opacity: 80%;
+}
+
+.message .commands .command .cmdbtn > button {
+  border-radius: 20px;
+  padding: 5px 10px;
+  background-color: #fff;
+  border-width: 0px;
+  align-content: center;
+  opacity: 80%;
 }
 
 .message .command .cmdbtn .editbtn {
