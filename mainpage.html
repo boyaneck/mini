@@ -60,42 +60,51 @@
     let docs = await getDocs(collection(db, "messages"));    
 
 
-
-    
-
+    let data = []
     docs.forEach((doc) => {
-       
-      let row = doc.data();
-      console.log(row);
-      let docId = doc.id // 문서 id
+      let row = {data: doc.data(), id:doc.id};
+      data.push(row)
 
       let name = row['name'];
       let command = row['command'];
       let id = row['id']; // 문서 내 id
 
+      let supportText = `현재 <span>${docs.size}</span> 명 응원 중!`
+      $('.support').html(supportText)
+    })
+    
+    
+      // ID 순서로 데이터 내림차순 정렬
+    let sortData = data.sort((a,b) => {
+      return b.data.id - a.data.id
+    })
+    // console.log(sortData);
+    sortData.forEach(el => {
+      // 랜덤한 게시물 배경색
       let number = Math.floor(Math.random() * (5 - 1 + 1) + 1);
       let color = ['#48767B', '#E26559', '#84B9C0', '#FFE697', '#C5D7F2', '#2B7799'];
       let color1 = color[number];
 
+      // 추가 할 게시물 HTML
       let temp_html = 
         `
         <li class="command" style="background-color:${color1}">
-          <span id="name">${name}</span>: <span id="command">${command}</span>
-          <div data-id=${docId} class="del"></div>
-          <div data-id=${docId} class="edit"></div>
+          <span id="name">${el.data.name}</span>: <span id="command">${el.data.command}</span>
+          <div data-id=${el.id} class="del"></div>
+          <div data-id=${el.id} class="edit"></div>
           <div class="cmdbtn">
             <button class="editbtn">수정</button>
             <button class="deletebtn" onclick="()=>handleDeleteButtonClick()">삭제</button>
           </div>
         </li>
         `
-      $('#commands').append(temp_html)
-      let supportText = `현재 <span>${docs.size}</span> 명 응원 중!`
-      $('.support').html(supportText)
-      
-      
+      document.querySelector('#commands').insertAdjacentHTML("beforeend", temp_html)
     })
-
+    
+        
+      
+    
+    
     // 삭제 버튼
     $('#commands').on("click", ".deletebtn", async function() {
       const commandEl = $(this).closest(".command"); // 가장 가까운 값 가져옴
@@ -117,26 +126,17 @@
       const commandEl = $(this).closest(".command"); // 가장 가까운 값 가져옴
       const username = commandEl.find("#name").text();
       const text = commandEl.find("#command").text();
-      const id = $('.edit').data('id');
-      window.location.href=`./Pages/edit.html?name=${username}&&text=${text}&&id=${id}`
-      
-
-      const storedId = commandEl.find(".edit").data('id');  // .del을 찾아 텍스트값을 가져온다.
-      console.log(username, text, storedId);
-
-      // try {
-      //   const docRef = doc(db, "messages", storedId); // await deleteDoc(doc(db, "messages", storedId))
-      //   await updateDoc(docRef, {name, text});
-      //   window.location.reload(); 
-      // } catch (err) {
-      //   console.log('err', err)
-      // }
+      const storedId = commandEl.find(".edit").data('id'); 
+      window.location.href=`./Pages/edit.html?name=${username}&&text=${text}&&id=${storedId}`
+      try {
+        const docRef = doc(db, "messages", storedId); // await deleteDoc(doc(db, "messages", storedId))
+        await updateDoc(docRef, {name, text, id});
+        window.location.reload(); 
+      } catch (err) {
+        console.log('err', err)
+      }
 
     })
-
-
-
-
 
     $('.mini_profile').click(async function() {
       location.href="./Pages/detailPage/detail.html?id="
@@ -313,7 +313,6 @@ isAdmin();
     <div class="material-icons">arrow_upward</div>
   </div> -->
 
-  <script src="./token.js"></script>
 </body>
 
 </html>
