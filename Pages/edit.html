@@ -52,11 +52,11 @@
         e.preventDefault() 
         const username = $('#name').val();
         const text = $('#command').val();
-
         try {
             const docRef = doc(db, "messages", postId); // await deleteDoc(doc(db, "messages", storedId))
             await updateDoc(docRef, {command:text, name:username});
-            window.location.replace('/mainpage.html'); 
+            window.location.replace('/mainpage.html');
+            
         } catch (err) {
         console.log('err', err)
         }

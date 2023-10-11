@@ -37,13 +37,15 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
-        
+        let docs = await getDocs(collection(db, "messages"));    
+
         
         $("#postingbtn").click(async function (e) {
             e.preventDefault();
             let name = $('#name').val();
             let command = $('#command').val();
-            let id = Math.random()
+            // 총 데이터 개수 +1로 고유 아이디 부여
+            let id = docs.size + 1
 
             console.log(name, command, id)
             
