@@ -64,14 +64,13 @@ function drawPage() {
   });
 
   sorted.forEach((data) => {
-    const { name, github, blog, MBTI, goal, hobby } = data;
+    const { name, github, blog, MBTI, goal, hobby, img } = data;
 
     let textHTML = `<div class="profile_comp">
             <div class="profile_container">
               <div class="profile_image">
                 <img
-                  src="https://images.unsplash.com/photo-1515041219749-89347f83291a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
-                  alt=""
+                  src="${img}"
                 />
               </div>
               <div class="profile_info">
