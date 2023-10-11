@@ -171,7 +171,7 @@ header .item .team_contents .team_info>ul>ul>li .mini_profile {
   overflow: hidden;
 }
 
-header .item .team_contents .team_info > ul > ul > li .mini_profile > span {
+header .item .team_contents .team_info>ul>ul>li .mini_profile>span {
   font-size: 30px;
   /* background-color: #6a60a9; */
   margin-top: 2px;
@@ -183,19 +183,6 @@ header .item .team_contents .team_info > ul > ul > li .mini_profile > span {
 }
 
 /* MESSAGE */
-.message {
-  height: 500px;
-}
-
-.message > .inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 50px;
-}
-
 .message_button {
   position: absolute;
   bottom: -75%;
@@ -251,7 +238,7 @@ header .item .team_contents .team_info > ul > ul > li .mini_profile > span {
   margin-top: 5px;
 }
 
-.message .commands .command .cmdbtn > button {
+.message .commands .command .cmdbtn>button {
   border-radius: 20px;
   padding: 5px 10px;
   background-color: #fff;
@@ -260,7 +247,7 @@ header .item .team_contents .team_info > ul > ul > li .mini_profile > span {
   opacity: 80%;
 }
 
-.message .commands .command .cmdbtn > button {
+.message .commands .command .cmdbtn>button {
   border-radius: 20px;
   padding: 5px 10px;
   background-color: #fff;
